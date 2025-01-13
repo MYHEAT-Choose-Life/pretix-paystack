@@ -1,0 +1,42 @@
+[project]
+name = "pretix-paystack"
+dynamic = ["version"]
+description = "Accept payments through Paystack, a modern online and offline payments provider for Africa."
+readme = "README.rst"
+license = {text = "Apache"}
+keywords = ["pretix"]
+authors = [
+    {name = "MyHeat team", email = "info@myheat.co.za"},
+]
+maintainers = [
+    {name = "MyHeat team", email = "info@myheat.co.za"},
+]
+
+dependencies = [
+]
+
+[project.entry-points."pretix.plugin"]
+pretix_paystack = "pretix_paystack:PretixPluginMeta"
+
+[project.entry-points."distutils.commands"]
+build = "pretix_plugin_build.build:CustomBuild"
+
+[build-system]
+requires = [
+    "setuptools",
+    "pretix-plugin-build",
+]
+
+[project.urls]
+homepage = "https://github.com/MYHEAT-Choose-Life/pretix-paystack"
+repository = "https://github.com/MYHEAT-Choose-Life/pretix-paystack"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretix_paystack.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretix*"]
+namespaces = false

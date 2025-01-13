@@ -1,0 +1,5 @@
+[plugin]
+package = "pretix-paystack"
+modules = [ "pretix_paystack" ]
+marketplace_name = "paystack"
+
