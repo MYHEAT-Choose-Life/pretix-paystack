@@ -14,7 +14,6 @@
             "problemMatcher": [
                 "$python"
             ],
-            "dependsOn": ["Mail Server"]
         },
         {
             "label": "Mail Server",
@@ -34,7 +33,6 @@
             "command": "${workspaceFolder}/pretix/env/bin/python",
             "args": ["manage.py", "runperiodic"],
             "detail": "Pretix Worker",
-            "dependsOn":["Pretix Server"],
         }
     ]
 }
