@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Pretix Server",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/pretix/src"
+            },
+            "command": "${workspaceFolder}/pretix/env/bin/python",
+            "args": ["manage.py", "runserver"],
+            "problemMatcher": [
+                "$python"
+            ],
+            "dependsOn": ["Mail Server"]
+        },
+        {
+            "label": "Mail Server",
+            "type": "shell",
+            "command": "${workspaceFolder}/pretix/env/bin/python",
+            "args": ["-m", "aiosmtpd", "--debug", "-n", "-l", "localhost:1025"],
+            "problemMatcher": [
+                "$python"
+            ]
+        },
+        {
+            "label": "Pretix Worker",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/pretix/src"
+            },
+            "command": "${workspaceFolder}/pretix/env/bin/python",
+            "args": ["manage.py", "runperiodic"],
+            "detail": "Pretix Worker",
+            "dependsOn":["Pretix Server"],
+        }
+    ]
+}
