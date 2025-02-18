@@ -13,6 +13,7 @@ maintainers = [
 ]
 
 dependencies = [
+    "paystackapi"
 ]
 
 [project.entry-points."pretix.plugin"]
